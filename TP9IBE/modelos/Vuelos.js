@@ -1,8 +1,8 @@
+// models/Vuelo.js
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 import Avion from "../modelos/Avión.js";
 
-// models/Vuelo.js
 const Vuelo = sequelize.define("Vuelo", {
   origen: {
     type: DataTypes.STRING,
@@ -27,6 +27,17 @@ const Vuelo = sequelize.define("Vuelo", {
       model: Avion,
       key: "id",
     },
+  },
+  estado: {
+    type: DataTypes.ENUM(
+      "Programado",
+      "En curso",
+      "Atrasado",
+      "Cancelado",
+      "Completado"
+    ),
+    allowNull: false,
+    defaultValue: "Programado",
   },
 });
 
