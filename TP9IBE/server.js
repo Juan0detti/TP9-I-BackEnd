@@ -7,6 +7,7 @@ import VueloRoutes from "./rutas/rutas_vuelo.js";
 import PasajeRoutes from "./rutas/rutas_pasajes.js";
 import AlertasRoutes from "./rutas/rutas_alertas.js";
 import AvionRoutes from "./rutas/rutas_avion.js";
+import UsuarioRoutes from "./rutas/rutas_usuarios.js";
 
 import { sequelize } from "./modelos/index.js"; // Necesario para la DB
 import cors from "cors"; // Necesario para la comunicación con el frontend
@@ -38,6 +39,9 @@ app.use("/api/v1/pasajes", PasajeRoutes);
 app.use("/api/v1/alertas", AlertasRoutes);
 
 app.use("/api/v1/avion", AvionRoutes);
+
+//5. Rutas de Usuario (Actualixación)
+app.use("api/v1/usuarios", UsuarioRoutes);
 
 // Ruta Raíz
 app.get("/", (req, res) => {
